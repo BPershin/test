@@ -1,8 +1,8 @@
-package Tests;
+package tests;
 
-import RequestSender.RequestSender;
-import ResponseDto.FactItem;
-import RestAssured.RestAssuredSpec;
+import requestSender.RequestSender;
+import responseDto.FactItem;
+import restAssured.RestAssuredSpec;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -10,16 +10,15 @@ import java.io.IOException;
 
 import static io.restassured.RestAssured.given;
 
-
 public class RandomFactTest {
 
-    private final static String BASE_URL = "http://catfact.ninja";
+    private final static String BASE_URL = "https://catfact.ninja";
 
     @Test
     public void randomFactTestOne() throws IOException, InterruptedException {
 
         RequestSender requestSender = new RequestSender();
-        var fact = requestSender.get("/fact", FactItem.class);
+        var fact = requestSender.get(BASE_URL + "/fact", FactItem.class);
         var lenText = fact.getFact().length();
         var lenValue = fact.getLength();
         Assert.assertEquals(lenValue.intValue(), lenText);

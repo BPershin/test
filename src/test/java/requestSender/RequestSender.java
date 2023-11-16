@@ -1,4 +1,4 @@
-package RequestSender;
+package requestSender;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -11,10 +11,9 @@ import java.net.http.HttpResponse;
 
 public class RequestSender {
     private static final HttpClient _client = HttpClient.newBuilder().build();
-    private static final String BASE_URL = "https://catfact.ninja";
 
     private static HttpRequest buildRequest(String uri) {
-        return HttpRequest.newBuilder(URI.create(BASE_URL + uri)).setHeader("Content-Type", "application/json").build();
+        return HttpRequest.newBuilder(URI.create(uri)).setHeader("Content-Type", "application/json").build();
     }
 
     public <T> T get(String uri, Class<T> output) throws IOException, InterruptedException {

@@ -1,4 +1,4 @@
-package ResponseDto;
+package responseDto;
 
 public class FactItem {
     private String fact;
